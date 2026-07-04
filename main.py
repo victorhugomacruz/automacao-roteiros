@@ -35,8 +35,20 @@ def tratar_erro_api(e):
     print("Tentando novamente em 10 segundos...")
     time.sleep(10)
 
+def iniciar_nova_conversa():
+    """Chama a API para recarregar a página do Gemini e limpar o histórico."""
+    url = f"{API_BASE_URL}/api/ultragemineai/new_chat"
+    while True:
+        try:
+            print("\n[!] Limpando histórico e iniciando NOVA CONVERSA no Gemini...")
+            response = requests.post(url, timeout=60)
+            response.raise_for_status()
+            break
+        except Exception as e:
+            tratar_erro_api(e)
+
 def gerar_titulo(prompt_base, titulo_referencia):
-    """Substitui a tag do prompt pelo título base e pede para a IA gerar o título novo usando a rota Stateless."""
+    """Substitui a tag do prompt pelo título base e pede para a IA gerar o título novo."""
     prompt_final = prompt_base.replace("[TITULO DO VIDEO]", titulo_referencia)
     prompt_final += "\n\nRetorne APENAS o texto do título gerado, sem aspas, sem formatação markdown e sem nenhum texto adicional. Apenas a string do título."
     
@@ -52,24 +64,8 @@ def gerar_titulo(prompt_base, titulo_referencia):
         except Exception as e:
             tratar_erro_api(e)
 
-def gerar_prompts_imagens(prompt_base, titulo_novo):
-    """Substitui a tag do prompt pelo título e pede para a IA gerar os prompts de imagens."""
-    prompt_final = prompt_base.replace("[TITULO DO VIDEO]", titulo_novo)
-    
-    url = f"{API_BASE_URL}/api/ultragemineai/ask"
-    
-    while True:
-        try:
-            print(f"Gerando prompts de imagens...")
-            response = requests.post(url, json={"prompt": prompt_final}, timeout=300)
-            response.raise_for_status()
-            data = response.json()
-            return data.get("response", "").strip()
-        except Exception as e:
-            tratar_erro_api(e)
-
 def gerar_roteiro_em_blocos(prompt_base, titulo_novo):
-    """Gera um roteiro em 6 blocos utilizando a rota Stateful e pausas entre iterações."""
+    """Gera um roteiro em 6 blocos mantendo o contexto (Stateful)."""
     prompt_final = prompt_base.replace("[INSIRA O TITULO AQUI]", titulo_novo)
     
     url = f"{API_BASE_URL}/api/ultragemineai/chat"
@@ -78,7 +74,7 @@ def gerar_roteiro_em_blocos(prompt_base, titulo_novo):
     # Bloco 1
     while True:
         try:
-            print("Gerando Bloco 1...")
+            print("Gerando Roteiro - Bloco 1...")
             response = requests.post(url, json={"prompt": prompt_final}, timeout=300)
             response.raise_for_status()
             data = response.json()
@@ -94,7 +90,7 @@ def gerar_roteiro_em_blocos(prompt_base, titulo_novo):
         
         while True:
             try:
-                print(f"Gerando Bloco {i}...")
+                print(f"Gerando Roteiro - Bloco {i}...")
                 response = requests.post(url, json={"prompt": f"Prossiga para o Bloco {i}."}, timeout=300)
                 response.raise_for_status()
                 data = response.json()
@@ -105,8 +101,50 @@ def gerar_roteiro_em_blocos(prompt_base, titulo_novo):
                 
     return "\n\n".join(blocos)
 
+def gerar_prompts_imagens(prompt_base, titulo_novo, roteiro_gerado):
+    """Gera prompts de imagens em 20 blocos inserindo um trecho de 3500 caracteres do roteiro."""
+    
+    # Pega os primeiros 3500 caracteres do roteiro recém gerado
+    trecho_roteiro = roteiro_gerado[:3500]
+    
+    # Substitui as tags no arquivo base do prompt de imagem
+    prompt_final = prompt_base.replace("[TITULO DO VIDEO]", titulo_novo)
+    prompt_final = prompt_final.replace("[INSERIR O SEU ROTEIRO INTEIRO AQUI]", trecho_roteiro)
+    
+    url = f"{API_BASE_URL}/api/ultragemineai/chat"
+    blocos = []
+    
+    # Bloco 1
+    while True:
+        try:
+            print("Gerando Imagens - Bloco 1...")
+            response = requests.post(url, json={"prompt": prompt_final}, timeout=300)
+            response.raise_for_status()
+            data = response.json()
+            blocos.append(data.get("response", "").strip())
+            break
+        except Exception as e:
+            tratar_erro_api(e)
+    
+    # Blocos 2 ao 20
+    for i in range(2, 21):
+        print("Aguardando 5 segundos para não sobrecarregar...")
+        time.sleep(5)
+        
+        while True:
+            try:
+                print(f"Gerando Imagens - Bloco {i} (de 20)...")
+                response = requests.post(url, json={"prompt": f"Prossiga para o Bloco {i}. (É ESTRITAMENTE PROIBIDO GERAR E ME MANDAR QUALQUER TIPO DE IMAGEM, VOCÊ DEVE ME MANDAR APENAS OS PROMPTS. )"}, timeout=300)
+                response.raise_for_status()
+                data = response.json()
+                blocos.append(data.get("response", "").strip())
+                break
+            except Exception as e:
+                tratar_erro_api(e)
+                
+    return "\n\n".join(blocos)
+
 def formatar_tempo_srt(segundos):
-    """Formata segundos float para o formato de tempo do SRT (HH:MM:SS,MMM)."""
     horas = int(segundos // 3600)
     minutos = int((segundos % 3600) // 60)
     segs = int(segundos % 60)
@@ -114,12 +152,10 @@ def formatar_tempo_srt(segundos):
     return f"{horas:02}:{minutos:02}:{segs:02},{milis:03}"
 
 def formatar_bloco_srt(contador, tempo_inicio, texto, duracao_bloco):
-    """Auxiliar para gerar a string de um bloco SRT."""
     tempo_fim = tempo_inicio + duracao_bloco
     return f"{contador}\n{formatar_tempo_srt(tempo_inicio)} --> {formatar_tempo_srt(tempo_fim)}\n{texto.strip()}\n\n"
 
 def converter_para_srt(texto_completo, arquivo_srt_path):
-    """Lógica do conversor CapCut portada diretamente do HTML/JS."""
     CARACTERES_POR_BLOCO = 500
     PALAVRAS_MAX_BLOCO = 100
     DURACAO_BLOCO = 30
@@ -129,9 +165,7 @@ def converter_para_srt(texto_completo, arquivo_srt_path):
     contador = 1
     tempo_acumulado = 0.0
     
-    # Pega as palavras, ignorando quebras de linha longas e espaços em branco vazios
     palavras = texto_completo.split()
-    
     bloco_atual = ''
     palavras_no_bloco = 0
 
@@ -141,7 +175,6 @@ def converter_para_srt(texto_completo, arquivo_srt_path):
             palavras_no_bloco += 1
         else:
             ultimo_ponto_final = bloco_atual.rfind('.')
-            # Se encontrou um ponto final e ele não é o último caractere (antes do espaço no final)
             if ultimo_ponto_final != -1 and ultimo_ponto_final != len(bloco_atual.strip()) - 1:
                 resto = bloco_atual[ultimo_ponto_final + 1:]
                 bloco_atual = bloco_atual[:ultimo_ponto_final + 1]
@@ -181,7 +214,6 @@ def main():
         print("Quantidade inválida. Por favor, digite um número inteiro.")
         return
 
-    # 1. Solicita todos os títulos em sequência antes de rodar o gerador
     titulos_referencia = []
     for i in range(qtd_roteiros):
         titulo = input(f"Qual o título de referência original do vídeo {i+1}? ")
@@ -191,25 +223,30 @@ def main():
     prompt_roteiro_base = ler_arquivo("PromptRoteiro.txt")
     prompt_imagem_base = ler_arquivo("PromptImagem.txt")
     
-    # Executa a automação para cada título de forma ininterrupta
     for i, titulo_referencia in enumerate(titulos_referencia):
         print(f"\n--- Processando Roteiro {i+1} de {qtd_roteiros} ---")
         print(f"Referência base: {titulo_referencia}")
         
-        # 1. Gerar Título
+        # 1. Garante uma conversa limpa antes de começar o Título e Roteiro
+        iniciar_nova_conversa()
+        
+        # 2. Gerar Título
         novo_titulo_bruto = gerar_titulo(prompt_titulo_base, titulo_referencia)
         titulo_novo = higienizar_nome_arquivo(novo_titulo_bruto)
         print(f"✓ Novo título gerado: {titulo_novo}")
         
-        # 2. Gerar Roteiro
+        # 3. Gerar Roteiro (6 Blocos)
         roteiro_completo = gerar_roteiro_em_blocos(prompt_roteiro_base, titulo_novo)
         print("✓ Roteiro em 6 blocos gerado com sucesso!")
         
-        # 3. Gerar Prompts de Imagens
-        prompts_imagens = gerar_prompts_imagens(prompt_imagem_base, titulo_novo)
-        print("✓ Prompts de imagens gerados com sucesso!")
+        # 4. Limpa a conversa novamente antes das imagens
+        iniciar_nova_conversa()
         
-        # 4. Salvar Arquivos em Pasta
+        # 5. Gerar Prompts de Imagens (20 Blocos, enviando 3500 caracteres do roteiro)
+        prompts_imagens = gerar_prompts_imagens(prompt_imagem_base, titulo_novo, roteiro_completo)
+        print("✓ Prompts de imagens (20 blocos) gerados com sucesso!")
+        
+        # 6. Salvar Arquivos em Pasta
         print(f"Criando pasta: {titulo_novo}")
         os.makedirs(titulo_novo, exist_ok=True)
         

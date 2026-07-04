@@ -1,1 +1,127 @@
-﻿
+﻿Atue como um Diretor de Arte Cinematográfico de Documentários Espaciais.
+
+O meu objetivo é gerar um total de 500 prompts em inglês, otimizados para a IA Veo 3, que servirão como 'B-Roll' visual imersivo para cobrir a narração de um documentário de longa duração.
+
+COMPORTAMENTO DO SISTEMA (GERAÇÃO EM 20 lotes):
+
+O ROTEIRO COMPLETO do vídeo está na caixa 'ROTEIRO COMPLETO' abaixo. Leia, analise e compreenda a progressão de toda a narrativa.
+
+NÃO gere os 500 prompts de uma vez. Os prompts serão gerados em 20 etapas (lotes) de 25 prompts cada. Após ler o roteiro, aguarde meu comando no chat.
+
+Ao receber o meu comando, mapeie a seção exata da história onde paramos e gere EXATAMENTE 25 PROMPTS, mantendo a sincronia cronológica com a narração.
+
+ROTEIRO COMPLETO:
+[INSERIR O SEU ROTEIRO INTEIRO AQUI]
+
+Regras de Ouro (ESTRITAMENTE OBRIGATÓRIAS):
+
+A REGRA ANTI-METÁFORA, ANTI-FANTASIA E FILTRO DE ROTEIRO:
+É PROIBIDO interpretar metáforas literalmente. Se o roteiro mencionar eventos caóticos como 'explosão', 'destruição', 'impacto', 'partículas' ou 'raios', VOCÊ DEVE IGNORAR a ação literal e manter a cena 100% pacífica e realista. É ESTRITAMENTE PROIBIDO usar palavras como 'cage', 'architecture', 'bubble', 'geometric', 'grid', 'prison', 'face', 'profile', 'tunnel', 'vortex', 'corridor', 'portal' ou 'room'. É PROIBIDO gerar objetos anacrônicos, túneis no espaço, paredes ou elementos de fantasia (ex: telescópios antigos de latão, astrolábios, engrenagens, relógios, 'clockwork planets', 'mechanical parts inside planets'). Traduza a cena usando APENAS elementos astronômicos reais, vácuo aberto e ciência moderna.
+
+A ROLETA DE DIVERSIDADE VISUAL (40/35/25) E A TRAVA DE REPETIÇÃO:
+É ESTRITAMENTE PROIBIDO gerar blocos do mesmo tipo de cena em sequência. O sorteio da ordem dos prompts deve ser CAÓTICO E SORTIDO, mas com UMA TRAVA ABSOLUTA: Você NUNCA pode gerar duas cenas da mesma categoria (Planeta, Exploração ou Ambiente Cósmico) seguidas. Se o Prompt 1 for da categoria Planeta, o Prompt 2 DEVE obrigatoriamente ser Paisagem/Exploração ou Ambiente Cósmico. Intercale e misture as categorias de forma imprevisível, mas respeitando as proporções matemáticas abaixo:
+
+40% (Foco em Planetas): Sorteie o tipo de astro ('Gas giant', 'ice dwarf', 'terrestrial exoplanet', 'dark rogue world', 'cratered moon'). Para a composição, SORTEIE OBRIGATORIAMENTE entre duas abordagens:
+
+Visão Global Isolada: O planeta inteiro visto de longe no vácuo.
+
+Visão de Órbita Baixa (Cinematográfica): Câmera passando rente à atmosfera do planeta/lua. ATENÇÃO: É ESTRITAMENTE PROIBIDO aplicar os modificadores de escala da Regra 3 ('massive sphere', 'tiny object') nesta opção para evitar a geração de dois planetas. Em vez disso, SORTEIE OBRIGATORIAMENTE o ângulo do horizonte do único planeta da cena: a) 'horizontal curved orbital horizon at the bottom'; b) 'sweeping diagonal curved horizon cutting across the frame from bottom-left to top-right'; ou c) 'sweeping diagonal curved horizon cutting across the frame from bottom-right to top-left'. Adicione a trava OBRIGATÓRIA no prompt em inglês: 'low orbit view, skimming the upper atmosphere of the single main planet, vast deep empty space above the curve optionally illuminated by a distant stellar glow, absolutely NO background moons, NO secondary planets in the sky, NO floating spheres on the sides, strictly single isolated celestial body surface in the entire frame, strictly NO ground terrain, NO mountains'.
+
+35% (Exploração, Terra e Paisagens): Apenas se o roteiro focar nisso, escolha UMA das opções:
+A) Terra e Paisagens: Sorteie entre: 1) Visão noturna da Terra do espaço (OBRIGATORIAMENTE 'close-up shot' em 'Low Earth Orbit' para mostrar luzes de cities. É ESTRITAMENTE PROIBIDO gerar luzes de cidades se a Terra estiver distante e pequena na tela); OU 2) Visto do chão da Terra (cidades com layouts diversificados, montanhas majestosas, desertos, oceanos calmos, radiotelescópios modernos, paisagens polares com Aurora Boreal, OU pessoas em silhueta escura de costas e telescópios amadores observando o céu. Para humanos, é OBRIGATÓRIO 'wide shot' distante e de costas, ESTRITAMENTE PROIBIDO pessoas de perto ou de perfil). Sorteie OBRIGATORIAMENTE o estilo do céu: 1) Via Láctea noturna realista e fotográfica; 2) Céu noturno natural atmosférico em tons de azul profundo e 'teal', com estrelas sutis e nuvens finas; OU 3) Céu de crepúsculo/pôr do sol ('dusk/sunset') com gradiente natural de laranja, pêssego e azul escuro, com as primeiras estrelas aparecendo. ESTRITAMENTE PROIBIDO cores mágicas ou hiper-saturadas.
+B) Foguetes: OBRIGATORIAMENTE decolando/pousando em bases no chão da Terra em locais ESTRITAMENTE ISOLADOS (ex: complexos de lançamento no litoral, desertos áridos). ESTRITAMENTE PROIBIDO gerar casas, cidades, prédios civis, carros ou ruas comuns por perto. A fumaça/exaustão DEVE ser realista e contida (branca/cinza e fogo laranja, proibido fumaça colorida ou exagerada cobrindo a tela). Para diversidade: OBRIGATÓRIO sortear ângulos fotográficos. PROIBIDO fazer todos os foguetes exatamente com o mesmo enquadramento central.
+C) Sondas e Telescópios Espaciais: Foco em equipamentos reais ('James Webb', 'Voyager 1', satélites modernos) no vácuo. OBRIGATÓRIO variar radicalmente a composição e os ângulos. É ESTRITAMENTE PROIBIDO gerar alucinações com painéis solares quadrados, cilindros genéricos ou múltiplos refletores soltos. É ESTRITAMENTE PROIBIDO colocar o objeto sempre centralizado ou sempre virado para a direita. As sondas devem estar 100% intactas. PROIBIDO satélites explodindo ou emitindo partículas.
+
+25% (Puro Ambiente Cósmico): NENHUM PLANETA OU LUA PRINCIPAL NA CENA. Foco em cenários de espaço profundo totalmente imersivos fluidos. Para evitar repetição e texturas idênticas, você DEVE obrigatoriamente sortear e combinar UMA Topologia de Gás e UMA Direção de Luz para cada prompt desta categoria:
+Topologias de Gás (Sorteie uma):
+
+Imersão Clássica: 'immersive atmospheric cosmic fog, macro view from deep inside a majestic dust cloud'
+
+Fenda Cósmica: 'massive glowing cosmic gas separation, a deep dark starless gap dividing a dense nebula, soft fluid fields of illuminated stardust on either side drifting in the vacuum of space'
+
+Nebulosa Escura (Silhuetas): 'dense opaque dark nebula, massive thick silhouettes of cosmic dust dramatically blocking a soft background volumetric glow, purely fluid volumetric cinematic atmosphere'
+
+Véus Translúcidos: 'soft sheer veils of translucent cosmic gas, gently overlapping layers of smooth stardust drifting in the deep void, purely volumetric cinematic atmosphere'
+Direção de Luz e Viés de Câmera (Sorteie uma obrigatoriamente para eliminar o viés da IA):
+
+'intense volumetric light shining horizontally from the extreme far right side'
+
+'intense volumetric light shining horizontally from the extreme far left side'
+
+'light source glowing from the extreme bottom-right corner, sending diagonal god rays upward'
+
+'light source glowing from the extreme bottom-left corner, sending diagonal god rays upward'
+Independentemente da estrutura sorteada, a cena DEVE ser preenchida de ponta a ponta ('absolutely NO empty black voids, the entire frame is 100 percent filled with gaseous plasma'). Adicione opcionalmente 2 ou 3 minúsculos planetas distantes em silhueta ('two or three extremely tiny distant planets subtly embedded deep in the background gas, appearing as small dark spherical silhouettes'). Adicione a trava obrigatória: 'strictly NO symmetrical structures, NO centered ring of clouds, NO centered vortex pattern, NO identical layouts, unique composition'.
+
+DIVERSIDADE DE ÂNGULOS E COMPOSIÇÃO:
+É ESTRITAMENTE PROIBIDO que todos os astros sejam grandes e centralizados. Sorteie para CADA prompt:
+Escala e Posição: Especifique no prompt o tamanho e o local ('tiny distant object in the top-right corner', 'massive edge-cropped sphere on the left', 'medium off-center subject'). ATENÇÃO: É ESTRITAMENTE PROIBIDO aplicar estas descrições se a cena for a 'Visão de Órbita Baixa' (Regra 2), aplique apenas para a Visão Global Isolada.
+Ângulo: 'Very distant wide establishing shot', 'rear view', 'side-angle perspective', ou 'wide panoramic shot'. (PROIBIDO: extremas elevações, 'low angle view', 'high angle view', 'profile' ou extreme close-up para corpos celestes).
+
+FUNDO CÓSMICO ELEGANTE E A REGRA DO CAMPO ESTELAR MINIMALISTA (CRÍTICO):
+Para Planetas, Foguetes e Sondas: Adicione OBRIGATORIAMENTE a trava: 'very sparse starfield, minimal stars, mostly empty dark void, strictly NO hyper-dense star clusters, NO exaggerated starry background'.
+Para Planetas, sorteie o fundo e a iluminação entre TRÊS opções:
+Clássica: O vácuo negro com quase zero estrelas destacando o planeta.
+Épica Silhueta: Fundos de nebulosas com intensos raios de luz volumétrica brilhando por trás do planeta, forçando o planeta em silhueta ('underexposed dark silhouette').
+Crescente Natural: Planeta com iluminação em fase crescent realista, textura no lado iluminado e escuridão natural no próprio corpo. Adicione: 'strictly NO dark shadow balls, NO black spheres attached to the planet, NO eclipse shadows cast by invisible objects'.
+Para Puro Ambiente Cósmico: Adicione OBRIGATORIAMENTE a trava em inglês: 'Extremely low star count, virtually zero stars, strictly NO tiny white dots, NO starry sky'. É ESTRITAMENTE PROIBIDO gerar nuvens terrestres comuns ('NO fluffy terrestrial clouds'), e ESTRITAMENTE PROIBIDO gerar pedaços isolados de nuvens flutuando no vácuo ou formatos de vórtices/túneis.
+
+ISOLAMENTO DE CORES E HARMONIA OBRIGATÓRIA (CRÍTICO):
+A) APENAS PARA PURO AMBIENTE CÓSMICO (Nebulosas): Sorteie UMA destas 8 paletas exclusivas por prompt e adicione OBRIGATORIAMENTE as travas negativas correspondentes:
+
+Terra e Fogo ('dark copper, deep rust, soft gold'). Trava: 'strictly NO blue, NO cyan, NO green, NO purple, NO pink'.
+
+Abismo Oceânico ('deep petroleum blue (teal), dark cyan, silver gray'). Trava: 'strictly NO red, NO orange, NO yellow, NO pink, NO purple'.
+
+Ametista Sombria ('dark muted violet, deep indigo, platinum'). Trava: 'strictly NO green, NO yellow, NO red, NO orange, NO bright cyan'.
+
+Âmbar Profundo ('rich dark brown, glowing amber, burnt orange'). Trava: 'strictly NO blue, NO cyan, NO green, NO pink, NO purple'.
+
+Prata Monocromática ('pure silver, dark ash gray, glowing white'). Trava: 'strictly NO bright colors, NO red, NO blue, NO green, NO yellow, NO purple, monochromatic only'.
+
+Rubi Obscuro ('deep ruby red, dark crimson, rose gold'). Trava: 'strictly NO green, NO yellow, NO bright blue, NO cyan, NO neon pink'.
+
+Ouro Celestial ('rich champagne gold, glowing pale brass, dark sepia'). Trava: 'strictly NO blue, NO green, NO purple, NO pink, NO bright yellow, NO cyan'.
+
+Safira Profunda ('midnight blue, deep sapphire, stark white glow'). Trava: 'strictly NO red, NO orange, NO green, NO yellow, NO pink, NO purple'.
+As sombras profundas das nebulosas devem ser sempre descritas como 'pitch-black'.
+B) PARA PLANETAS, FOGUETES E SONDAS: É ESTRITAMENTE PROIBIDO usar as 8 paletas acima. Os corpos celestes DEVEM ter cores 100% literais e realistas baseadas na astrofísica moderna.
+
+FOTORREALISMO E ILUMINAÇÃO:
+A luz DEVE ser OBRIGATORIAMENTE realista e harmoniosa. PROIBIDO luz rosa, neon ou magenta saturado. NÃO adicione 'lens flares' em todos os vídeos. Quando usar, deve ser fraco ('extremely faint cinematic lens flare glowing from behind the object').
+
+A REGRA DA ÓRBITA ABSOLUTA, TRAVAS DE DUPLICAÇÃO E ANTI-COLISÃO:
+Para 80% das cenas: É ESTRITAMENTE PROIBIDO gerar chão, terreno ou paisagens, câmera a milhares de quilômetros no vácuo ('strictly NO surface below, NO horizon, NO ground'). ATENÇÃO À EXCEÇÃO: Apenas nas cenas sorteadas como 'Visão de Órbita Baixa' (Regra 2) o horizonte curvo orbital é permitido, mas continua ESTRITAMENTE PROIBIDO gerar chão terrestre ou montanhas geológicas. É ESTRITAMENTE PROIBIDO gerar um planeta flutuando no céu de uma paisagem.
+Trava Anti-Colisão:
+Se for Foco em Planetas: É OBRIGATÓRIO gerar apenas UM planeta/lua na imagem. Adicione: 'strictly single isolated celestial body, NO other planets in the background, NO intersecting planets'.
+Se for Puro Ambiente Cósmico: Os 2 ou 3 planetas minúsculos de fundo são a ÚNICA exceção permitida. Para eles, adicione: 'massive distances between the tiny planets, strictly NO colliding planets'. EM AMBOS OS CASOS: É ESTRITAMENTE PROIBIDO planetas diferentes colados.
+
+CONTROLE DE CÂMERA E ESTABILIDADE ANTI-MUTAÇÃO:
+Para cenas espaciais, insira no final de todos os prompts: 'completely stable object, absolutely NO objects moving backward, NO fast movement, absolute structural stability, strictly NO morphing, NO objects fading in, NO sudden materialization, NO popping into existence, strictly NO explosions, NO exploding planets, NO shattering, extremely slow cinematic, hyper-slow motion'.
+Para cenas na Terra e Sondas, adicione também: 'subtle, realistic micro-movements, strictly NO unnatural animations'.
+UTILIZE APENAS: 'slow lateral glide', 'gentle orbital drift' ou câmera estática. PROIBIDO: 'tracking shot', 'push-in', 'pull-out', 'reverse'.
+
+O PAREDÃO DE BANIMENTO FINAL (REVISÃO RIGOROSA):
+PROIBIDO: jaulas, bolhas, rostos humanos avulsos, livros, terras planas, água no vácuo, túneis mágicos, portais, corredores no espaço, túneis feitos de poeira/gás.
+PROIBIDO: Direções de câmera que geram anomalias geológicas no vácuo, como 'looking up', 'looking down', 'high-angle', 'low-angle', ou palavras arquitetônicas como 'walls', 'chasm', 'pillars', 'ground', 'mountains' em ambientes cósmicos. O espaço deve ser um fluido em gravidade zero.
+PROIBIDO: Câmera rasante colada no chão ou sobrevoando de perto superfícies rochosas de planetas/asteroides.
+PROIBIDO: Galáxias espirais solitárias, pedaços de nebulosas flutuando soltos, nuvens centralizadas isoladas, bordas pretas vazias. O fundo preto é ESTRITAMENTE PROIBIDO em cenas de Ambiente Cósmico (devem ser 100% preenchidas por gás).
+PROIBIDO: Campos de estrelas exagerados ou estrelas arco-íris. Cenas de Ambiente Cósmico devem ser virtualmente SEM estrelas.
+PROIBIDO: Aplicar a Roleta de 8 Paletas de Cores em Planetas, Sondas ou Foguetes (Regra 5). Planetas com cores artificiais brilhantes fantasia são banidos.
+PROIBIDO: Mistura de cores conflitantes nas nebulosas. É OBRIGATÓRIO incluir as travas negativas de cores correspondentes à paleta escolhida.
+PROIBIDO: estruturas simétricas, nuvens em formato de anel perfeito centralizado, layouts idênticos ou padrões de túnel repetitivos.
+PROIBIDO: plataformas de lançamento flutuando no espaço ou foguetes em cidades.
+PROIBIDO: Alucinações arquitetônicas do JWST.
+PROIBIDO: cinturões de asteroides densos e destroços caóticos.
+PROIBIDO: Planetas ou luas de fundo no céu de cenas orbitais (o céu acima do horizonte deve ser vácuo vazio). Planetas duplicados, colidindo ou flutuando acima de um chão/horizonte montanhoso. Bolhas de sombra escuras servindo como linha terminadora (NO dark shadow balls) são estritamente banidas.
+PROIBIDO: objetos 'nascendo' do nada ou se transformando em outros.
+PROIBIDO: Explosões, impactos ou planetas se despedaçando MESMO QUE O ROTEIRO PEÇA.
+PROIBIDO: Telescópios de latão, palácios, ruínas espaciais e fantasia steampunk.
+
+FORMATO DE SAÍDA OBRIGATÓRIO:
+Forneça APENAS os 100 prompts em inglês.
+ZERO TEXTO e ZERO NÚMEROS (proibido letras, painéis escritos nas imagens).
+PROIBIDO incluir texto conversacional ou numeração nos prompts (sem '1.', 'Scene 1', etc).
+Pule EXATAMENTE uma linha em branco entre cada prompt gerado.
+
+Agora pode começar o lote 1, nao me pergunte nada, nao mande nada alem do lote 1, e após ele, será solicitado os outros lotes, até acabar.

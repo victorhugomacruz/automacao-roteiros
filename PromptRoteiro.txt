@@ -1,1 +1,67 @@
-﻿
+﻿Aja como um Roteirista Master e Documentarista Cientifico com mais de 20 anos de experiencia na industria cinematografica e na producao de conteudos premium. Voce e conhecido por criar roteiros lendarios que prendem o espectador por horas atraves de uma narrativa profunda, inteligente e filosofica. Sua especialidade e traduzir o complexo em algo emocional e grandioso.
+
+O objetivo e escrever um roteiro de documentario imersivo e existencial sobre astronomia para o YouTube, projetado para ter cerca de 1 hora de duracao exata (meta de volume calculada para garantir que o roteiro final tenha rigorosamente entre 60.000 e 65.000 caracteres totais).
+
+Publico-Alvo: Adultos intelectuais e curiosos, majoritariamente entre 25 e 50 anos. E uma audiencia fascinada pelo "terror existencial" do cosmos, que ama filmes como Interestelar e exige rigor cientifico absoluto. Eles buscam conhecimento solido e reflexoes profundas. Evite qualquer linguagem acelerada de internet ou girias modernas, mas mantenha a narrativa afiada, instigante e moderna. Nao seja paternalista nem de sermoes morais; trate o espectador como um igual.
+
+Titulo/Tema do video:
+
+IDIOMA DO ROTEIRO:
+Escreva o roteiro INTEIRAMENTE EM INGLES (English). Embora estas instrucoes estejam em portugues, a sua resposta (a narracao do documentario) deve ser 100% em ingles de nivel nativo, mantendo a riqueza de vocabulario, o tom formal e o estilo cinematografico exigidos.
+
+INSTRUCOES DE TOM, ESTILO E PROFUNDIDADE:
+
+Tom: Sombrio, misterioso, implacavel e melancolico, no estilo de um thriller de ficcao cientifica (ex: Interestelar, Duna). O universo e tratado como uma entidade avassaladora e indiferente. Evite o sensacionalismo e o excesso de adjetivos extremos (como "aterrorizante", "violento" ou "destrutivo" em excesso). Confie que a ciencia nua e crua e a escala dos numeros ja sao grandiosas o suficiente. O impacto deve vir da frieza dos fatos e da solidao do espaco, nao de palavras de choque.
+
+Rigor Factual Absoluto (Zero Ficcao e Zero Alucinacao): E ESTRITAMENTE PROIBIDO inventar fatos, descobertas, anomalias impossiveis ou tramas de ficcao cientifica (ex: megaestruturas alienigenas, sinais nao confirmados, mega-maquinas ocultas). O roteiro deve ser 100% verdadeiro e ancorado no consenso astrofisico atual, astronomia observacional e em dados reais. O "terror existencial" deve nascer exclusivamente da frieza, da hostilidade real do universo e da nossa insignificancia, e NUNCA de invencoes narrativas. Se a ciencia real nao descobriu algo, nao afirme que descobriu. Transforme fatos sombrios reais em uma narrativa epica.
+
+Originalidade e Anti-Repeticao (Zero Cliches): E ESTRITAMENTE PROIBIDO usar formulas prontas como "Por seculos a humanidade acreditou..." ou "Nos achavamos X, mas era Y". Apresente a hostilidade do universo de formas criativas, atraves dos dados crus, e nao de reflexoes repetitivas. Varie sempre a estrutura gramatical das aberturas.
+
+Vocabulario e Carga Cognitiva (Escreva para os ouvidos): O texto sera ouvido, nao lido em um livro. Mantenha a atmosfera epica e sombria, mas USE PALAVRAS SIMPLES E DIRETAS. Evite termos academicos obscuros, linguagem excessivamente erudita ou palavras abstratas que exijam esforco mental para serem decifradas (ex: evite expressoes como "chronological currency" ou "geological stratum"). Troque palavras dificeis e metaforas intelectuais por imagens fortes, claras e universais de rapida absorcao. A clareza conversacional e tao importante quanto a poesia.
+
+Escrita e Variacao de Ritmo: Evite a fadiga mental. Nao construa o texto APENAS com frases curtas. Mescle frases curtas e de impacto com paragrafos mais longos, fluidos e descritivos para dar "respiros" ao espectador. Proibido usar repetidamente a muleta narrativa de "afirmacao dramatica seguida de uma unica palavra solitaria" (ex: "And yet. Silence."). Seja mais criativo na construcao da tensao.
+
+Profundidade Cientifica e Historica (Sem "TED Talk"): O seu publico e maduro e exigente. Aprofunde-se na "carne" da ciencia, na engenharia e na matematica fria. Detalhe como as coisas funcionam de verdade (ex: como um telescopio especifico opera, quais sao os numeros reais, as anotacoes exatas de cientistas historicos). A filosofia existencial deve ser o tempero do documentario, mas a base obrigatoria e a ciencia nua e crua.
+
+Transicoes e Sinalizacao Sem Subtitulos: Nos blocos mais longos, crie pausas e introducoes narrativas claras para novos subtemas. O espectador precisa sentir que a historia esta avancando. POREM, E ESTRITAMENTE PROIBIDO o uso de subtitulos, marcadores ou nomes de capitulos escritos no meio do texto (ex: "The Architecture of the Argument"). A transicao deve ser feita puramente atraves da fala fluida do narrador.
+
+Metaforas: Explique conceitos absurdos e matematica complexa usando analogias visuais simples que ressoem com a vivencia do dia a dia de adultos modernos. Misture analogias classicas e contemporaneas (ex: uma geladeira, uma cidade vazia de madrugada, a latencia de um servidor global, um farol na neblina). O objetivo e fazer a fisica parecer palpavel, real e instantaneamente compreensivel.
+
+CTA Imersivo e Claro: O Convite a Acao (CTA) DEVE ser posicionado apenas no final do Bloco 2 (quando o espectador ja esta fisgado e o video atingiu maturidade), NUNCA no Cold Open. Deve ser 100% imersivo e cinematografico, mas DEVE pedir explicitamente para o espectador se inscrever. Nao tenha medo de usar a palavra "subscribe". Faca de forma epica e elegante (ex: "Se voce busca a verdade no escuro, inscreva-se e junte-se a nos nesta jornada"). Apenas evite girias baratas de youtuber como "smash the like button" ou "algoritmo".
+
+Texto Limpo para Narracao: Escreva APENAS o texto falado. NAO insira nenhuma tag de direcao, notas de edicao, colchetes como [VIDEO], [AUDIO] ou [PAUSA], nem TITULOS/SUBTITULOS dividindo o texto. O texto deve estar 100% limpo, pronto para ser jogado no Text-to-Speech sem que a voz leia formatacoes estranhas. Para criar pausas dramaticas, use reticencias e paragrafos curtos estrategicos.
+
+Matematica Narrada e Proibicao de Formulas: E ESTRITAMENTE PROIBIDO gerar equacoes matematicas em formato algebrico, simbolos complexos ou formatacao LaTeX (ex: fracoes, raizes quadradas, variaveis soltas). O software de voz nao consegue ler isso. Em vez de escrever a formula crua, traduza a matematica para o ingles falado de forma conceitual e cinematografica. Foque na proporcao e a consequencia da equacao.
+Exemplo ruim: "The temperature is given by T equals H-bar times C cubed..."
+Exemplo perfeito: "The mathematics reveal a merciless truth: the smaller the black hole, the hotter it burns, accelerating its own evaporation into the void."
+
+A ESTRUTURA DO DOCUMENTARIO E A MATEMATICA DE PALAVRAS (META MINIMA ABSOLUTA: 15.000 PALAVRAS / 90.000 CARACTERES):
+Para alcancar a marca de 1 hora de leitura fluida garantindo entre 80.000 e 90.000 caracteres, o roteiro sera dividido em 6 blocos. Cada bloco tem uma meta de palavras ideal. Cumpra essas metas estritamente e entregue abundancia de detalhes narrativos sem sair do escopo estabelecido.
+
+Bloco 1: O Cold Open (Meta: 600 palavras). Um gancho intrigante, melancolico e profundo no segundo zero, que quebra a intuicao do espectador usando a frieza dos fatos. REGRAS DO COLD OPEN:
+
+Abertura Fisica e Tangivel: Inicie SEMPRE teletransportando o espectador para o cenario (usando distancias, temperaturas, texturas ou eventos fisicos). E ESTRITAMENTE PROIBIDO comecar com reflexoes filosoficas abstratas ou falas subjetivas.
+
+O Misterio Inviolavel (Zero Spoilers): Apresente o problema impossivel ou o misterio e termine o bloco com a tensao no maximo. E ESTRITAMENTE PROIBIDO dar a resposta, revelar a causa ou resolver o misterio logo no inicio. O gancho faz a pergunta, jamais da a resposta.
+
+Variabilidade Gramatical: Nunca use a mesma estrutura para iniciar (ex: evite comecar sempre com "X bilhoes de milhas de distancia"). Varie a forma de iniciar, mas mantenha o foco em fatos fisicos crus.
+
+Sem Cliches e Sem CTA: E ESTRITAMENTE PROIBIDO iniciar com "Look up at the night sky" ou pedir inscricoes/introduzir o canal neste bloco.
+
+Bloco 2: A Desconstrucao da Intuicao (Meta: 2.750 palavras). Explicando a fisica por tras do tema e por que o nosso senso comum esta absolutamente errado. REGRAS DO BLOCO 2 (O Fim da "Sala de Aula"): Assuma que o publico e inteligente. E ESTRITAMENTE PROIBIDO frear o ritmo para dar aulas de fisica basica de ensino medio (ex: explicar detalhadamente que a luz demora para viajar de forma didatica e chata). A transicao para a ciencia deve soar como uma investigacao criminal cosmica ou um ataque a arrogancia biologica humana. Mergulhe na historia da ciencia com riqueza de detalhes textuais, mas mantenha a tensao de um thriller. Finalize este bloco com o CTA imersivo e maduro pedindo a inscricao.
+
+Bloco 3: A Escala do Misterio (Meta: 3.875 palavras). O nucleo do documentario. Aprofunde-se no aspecto mais bizarro com dados reais, teorias cientificas, experimentos ou observacoes telescopicas hiperdetalhadas. Discorra extensamente sobre a imensidao do tema e a mecanica dos fatos. Explore os pormenores para gerar volume real de texto util.
+
+Bloco 4: O Paradoxo e a Barreira (Meta: 3.875 palavras). Onde a nossa fisica atual quebra. As limitacoes matematicas, o conflito entre teorias ou os perigos reais envolvidos. Detalhe os impasses teoricos e a frustracao cientifica de forma tecnica, mas acessivel e extensamente elaborada.
+
+Bloco 5: As Consequencias Ocultas (Meta: 3.000 palavras). O que essa descoberta ou misterio significa para a compreensao da realidade, do tempo e do nosso futuro a longo prazo.
+
+Bloco 6: A Conclusao Existencial (Meta: 900 palavras). O fechamento filosofico final. Nao resuma o video. Faca uma reflexao instigante sobre a nossa insignificancia no cosmos. Regra de Ouro: Termine o video de forma fria, sombria e contemplativa. E estritamente proibido dar "conselhos de vida" ao espectador. Deixe o publico em silencio absoluto com seus proprios pensamentos. IMEDIATAMENTE APOS O FIM DA NARRACAO, pule uma linha, escreva exatamente a palavra "DESCRICAO:" e crie uma descricao em ingles para o video baseada no roteiro. A descricao deve ter um tom misterioso, cientifico e direto. Finalize a descricao com um CTA simples (ex: "If you enjoy this, like and subscribe."). LOGO ABAIXO DA DESCRICAO, adicione uma secao "Sources:". Liste referencias reais. REGRA ANTI-ALUCINACAO: Nao invente URLs. Forneca links reais e verificados, ou deixe em branco se nao tiver certeza (ex: "a. Nature — [URL ou em branco]").
+
+COMO VAMOS TRABALHAR (REGRAS DE OURO):
+Para garantir a profundidade exigida, geraremos um bloco por vez.
+Sua tarefa agora e escrever APENAS O BLOCO 1.
+
+Regra de Transicao: NUNCA adicione uma frase de conclusao no final de um bloco provisorio. O texto deve simplesmente parar em um tom sombrio ou em um misterio nao resolvido, pronto para se conectar ao proximo bloco organicamente.
+
+Quando terminar o Bloco 1, PARE A GERACAO. Eu lerei e direi a palavra "Prossiga para o Bloco [X]"
