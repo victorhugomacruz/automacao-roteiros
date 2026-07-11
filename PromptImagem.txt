@@ -2,13 +2,13 @@
 
 O meu objetivo é gerar um total de 500 prompts em inglês, otimizados para a IA Veo 3, que servirão como 'B-Roll' visual imersivo para cobrir a narração de um documentário de longa duração.
 
-COMPORTAMENTO DO SISTEMA (GERAÇÃO EM 20 lotes):
+COMPORTAMENTO DO SISTEMA:
 
 O ROTEIRO COMPLETO do vídeo está na caixa 'ROTEIRO COMPLETO' abaixo. Leia, analise e compreenda a progressão de toda a narrativa.
 
-NÃO gere os 500 prompts de uma vez. Os prompts serão gerados em 20 etapas (lotes) de 25 prompts cada. Após ler o roteiro, aguarde meu comando no chat.
+NÃO gere os 500 prompts de uma vez. Os prompts serão gerados em 10 etapas (lotes) de 50 prompts cada. Após ler o roteiro, aguarde meu comando no chat.
 
-Ao receber o meu comando, mapeie a seção exata da história onde paramos e gere EXATAMENTE 25 PROMPTS, mantendo a sincronia cronológica com a narração.
+Ao receber o meu comando, mapeie a seção exata da história onde paramos e gere EXATAMENTE 50 PROMPTS, mantendo a sincronia cronológica com a narração.
 
 ROTEIRO COMPLETO:
 [INSERIR O SEU ROTEIRO INTEIRO AQUI]

@@ -57,92 +57,160 @@ def gerar_titulo(prompt_base, titulo_referencia):
     while True:
         try:
             print(f"Gerando novo título...")
-            response = requests.post(url, json={"prompt": prompt_final}, timeout=300)
+            response = requests.post(url, json={"prompt": prompt_final}, timeout=400)
             response.raise_for_status()
             data = response.json()
-            return data.get("response", "").strip()
+            texto_resposta = data.get("response", "").strip()
+            
+            # Validação Regra A
+            if texto_resposta.startswith("Erro:"):
+                print(f"[X] Validação de Falha: A API retornou -> {texto_resposta}")
+                print(f"Repetindo o pedido...")
+                time.sleep(5)
+                continue
+                
+            return texto_resposta
         except Exception as e:
             tratar_erro_api(e)
 
 def gerar_roteiro_em_blocos(prompt_base, titulo_novo):
-    """Gera um roteiro em 6 blocos mantendo o contexto (Stateful)."""
+    """Gera um roteiro em 6 blocos e retorna a LISTA de blocos para uso posterior."""
     prompt_final = prompt_base.replace("[INSIRA O TITULO AQUI]", titulo_novo)
     
     url = f"{API_BASE_URL}/api/ultragemineai/chat"
     blocos = []
+    ultimo_texto_gerado = ""
     
     # Bloco 1
     while True:
         try:
             print("Gerando Roteiro - Bloco 1...")
-            response = requests.post(url, json={"prompt": prompt_final}, timeout=300)
+            response = requests.post(url, json={"prompt": prompt_final}, timeout=400)
             response.raise_for_status()
             data = response.json()
-            blocos.append(data.get("response", "").strip())
+            texto_resposta = data.get("response", "").strip()
+            
+            # Validação Regra A
+            if texto_resposta.startswith("Erro:"):
+                print(f"[X] Validação de Falha: A API retornou -> {texto_resposta}")
+                print(f"Repetindo o pedido do Bloco 1...")
+                time.sleep(5)
+                continue
+            
+            ultimo_texto_gerado = texto_resposta
+            
+            # Adiciona a marcação no final apenas para o bloco 1
+            texto_bloco_1 = texto_resposta + "\n\n(BLOCO 1)"
+            blocos.append(texto_bloco_1)
             break
         except Exception as e:
             tratar_erro_api(e)
     
     # Blocos 2 ao 6
     for i in range(2, 7):
-        print("Aguardando 5 segundos para não sobrecarregar...")
-        time.sleep(5)
-        
         while True:
+            print(f"Aguardando 5 segundos para não sobrecarregar (Preparando Bloco {i})...")
+            time.sleep(5)
+            
             try:
                 print(f"Gerando Roteiro - Bloco {i}...")
-                response = requests.post(url, json={"prompt": f"Prossiga para o Bloco {i}."}, timeout=300)
+                response = requests.post(url, json={"prompt": f"Prossiga para o Bloco {i}."}, timeout=400)
                 response.raise_for_status()
                 data = response.json()
-                blocos.append(data.get("response", "").strip())
-                break
+                texto_resposta = data.get("response", "").strip()
+                
+                # Validação Regra A
+                if texto_resposta.startswith("Erro:"):
+                    print(f"[X] Validação de Falha: A API retornou -> {texto_resposta}")
+                    print(f"Repetindo o pedido do Bloco {i}...")
+                    continue
+                
+                # Validação Regra B
+                if texto_resposta == ultimo_texto_gerado:
+                    print(f"[X] Validação de Falha: O site ignorou o envio e retornou o bloco anterior repetido. Forçando reenvio do Bloco {i}...")
+                    continue
+                
+                ultimo_texto_gerado = texto_resposta
+                blocos.append(texto_resposta)
+                break 
             except Exception as e:
                 tratar_erro_api(e)
                 
-    return "\n\n".join(blocos)
+    return blocos # Retorna a lista para facilitar a divisão das imagens
 
-def gerar_prompts_imagens(prompt_base, titulo_novo, roteiro_gerado):
-    """Gera prompts de imagens em 20 blocos inserindo um trecho de 3500 caracteres do roteiro."""
-    
-    # Pega os primeiros 3500 caracteres do roteiro recém gerado
-    trecho_roteiro = roteiro_gerado[:3500]
-    
-    # Substitui as tags no arquivo base do prompt de imagem
-    prompt_final = prompt_base.replace("[TITULO DO VIDEO]", titulo_novo)
-    prompt_final = prompt_final.replace("[INSERIR O SEU ROTEIRO INTEIRO AQUI]", trecho_roteiro)
-    
+def gerar_prompts_imagens(prompt_base, titulo_novo, blocos_roteiro):
+    """Gera prompts de imagens em 5 conversas, usando o bloco correspondente do roteiro e pedindo 2 lotes (1 e 2)."""
     url = f"{API_BASE_URL}/api/ultragemineai/chat"
-    blocos = []
+    blocos_imagens = []
     
-    # Bloco 1
-    while True:
-        try:
-            print("Gerando Imagens - Bloco 1...")
-            response = requests.post(url, json={"prompt": prompt_final}, timeout=300)
-            response.raise_for_status()
-            data = response.json()
-            blocos.append(data.get("response", "").strip())
-            break
-        except Exception as e:
-            tratar_erro_api(e)
-    
-    # Blocos 2 ao 20
-    for i in range(2, 21):
-        print("Aguardando 5 segundos para não sobrecarregar...")
-        time.sleep(5)
+    # Roda exatamente 5 vezes (Conversa 1 a 5, usando Bloco 1 a 5 do roteiro)
+    for i in range(1, 6):
+        iniciar_nova_conversa()
         
+        # Pega o bloco correspondente (lembrando que índice de lista começa em 0)
+        if (i - 1) < len(blocos_roteiro):
+            trecho_roteiro = blocos_roteiro[i - 1]
+        else:
+            trecho_roteiro = ""
+            print(f"Aviso: Não há Bloco {i} no roteiro. Enviando trecho vazio.")
+            
+        # Monta o prompt
+        prompt_final = prompt_base.replace("[TITULO DO VIDEO]", titulo_novo)
+        prompt_final = prompt_final.replace("[INSERIR O SEU ROTEIRO INTEIRO AQUI]", trecho_roteiro)
+        
+        ultimo_texto_gerado = ""
+        
+        # --- PEDIDO DO LOTE 1 (Primeiros 50 prompts) ---
         while True:
+            print(f"Gerando Imagens - Conversa {i} (Lote 1 de 2 | Roteiro Bloco {i})...")
             try:
-                print(f"Gerando Imagens - Bloco {i} (de 20)...")
-                response = requests.post(url, json={"prompt": f"Prossiga para o Bloco {i}. (É ESTRITAMENTE PROIBIDO GERAR E ME MANDAR QUALQUER TIPO DE IMAGEM, VOCÊ DEVE ME MANDAR APENAS OS PROMPTS. )"}, timeout=300)
+                response = requests.post(url, json={"prompt": prompt_final}, timeout=400)
                 response.raise_for_status()
                 data = response.json()
-                blocos.append(data.get("response", "").strip())
+                texto_resposta = data.get("response", "").strip()
+                
+                # Validação Regra A
+                if texto_resposta.startswith("Erro:"):
+                    print(f"[X] Validação de Falha: A API retornou -> {texto_resposta}")
+                    print(f"Repetindo o pedido da Conversa {i} - Lote 1...")
+                    time.sleep(5)
+                    continue
+                
+                ultimo_texto_gerado = texto_resposta
+                blocos_imagens.append(texto_resposta)
+                break
+            except Exception as e:
+                tratar_erro_api(e)
+
+        # --- PEDIDO DO LOTE 2 (Últimos 50 prompts) ---
+        while True:
+            print(f"Aguardando 5 segundos para não sobrecarregar (Preparando Lote 2 da Conversa {i})...")
+            time.sleep(5)
+            print(f"Gerando Imagens - Conversa {i} (Lote 2 de 2 | Roteiro Bloco {i})...")
+            try:
+                response = requests.post(url, json={"prompt": "Prossiga para o bloco 2."}, timeout=400)
+                response.raise_for_status()
+                data = response.json()
+                texto_resposta = data.get("response", "").strip()
+                
+                # Validação Regra A
+                if texto_resposta.startswith("Erro:"):
+                    print(f"[X] Validação de Falha: A API retornou -> {texto_resposta}")
+                    print(f"Repetindo o pedido da Conversa {i} - Lote 2...")
+                    time.sleep(5)
+                    continue
+                
+                # Validação Regra B
+                if texto_resposta == ultimo_texto_gerado:
+                    print(f"[X] Validação de Falha: Texto repetido detectado. Forçando reenvio da Conversa {i} - Lote 2...")
+                    continue
+                
+                blocos_imagens.append(texto_resposta)
                 break
             except Exception as e:
                 tratar_erro_api(e)
                 
-    return "\n\n".join(blocos)
+    return "\n\n".join(blocos_imagens)
 
 def formatar_tempo_srt(segundos):
     horas = int(segundos // 3600)
@@ -227,7 +295,7 @@ def main():
         print(f"\n--- Processando Roteiro {i+1} de {qtd_roteiros} ---")
         print(f"Referência base: {titulo_referencia}")
         
-        # 1. Garante uma conversa limpa antes de começar o Título e Roteiro
+        # 1. Garante uma conversa limpa antes de começar
         iniciar_nova_conversa()
         
         # 2. Gerar Título
@@ -235,18 +303,18 @@ def main():
         titulo_novo = higienizar_nome_arquivo(novo_titulo_bruto)
         print(f"✓ Novo título gerado: {titulo_novo}")
         
-        # 3. Gerar Roteiro (6 Blocos)
-        roteiro_completo = gerar_roteiro_em_blocos(prompt_roteiro_base, titulo_novo)
+        # 3. Gerar Roteiro (6 Blocos) - Agora retorna uma lista com os 6 blocos isolados!
+        blocos_roteiro = gerar_roteiro_em_blocos(prompt_roteiro_base, titulo_novo)
         print("✓ Roteiro em 6 blocos gerado com sucesso!")
         
-        # 4. Limpa a conversa novamente antes das imagens
-        iniciar_nova_conversa()
+        # Junta o roteiro completo para salvar os arquivos finais
+        roteiro_completo = "\n\n".join(blocos_roteiro)
         
-        # 5. Gerar Prompts de Imagens (20 Blocos, enviando 3500 caracteres do roteiro)
-        prompts_imagens = gerar_prompts_imagens(prompt_imagem_base, titulo_novo, roteiro_completo)
-        print("✓ Prompts de imagens (20 blocos) gerados com sucesso!")
+        # 4. Gerar Prompts de Imagens (5 Conversas com 2 Lotes de 50 cada)
+        prompts_imagens = gerar_prompts_imagens(prompt_imagem_base, titulo_novo, blocos_roteiro)
+        print("✓ Prompts de imagens (10 lotes em 5 conversas) gerados com sucesso!")
         
-        # 6. Salvar Arquivos em Pasta
+        # 5. Salvar Arquivos em Pasta
         print(f"Criando pasta: {titulo_novo}")
         os.makedirs(titulo_novo, exist_ok=True)
         
